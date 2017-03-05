@@ -1,0 +1,63 @@
+#
+# ThemeInterface needs additional permissions when not running with system_server
+# projekt.interfacer.
+#
+#
+type themeinterfacer, domain;
+
+# Add ThemeInterfacer to domains
+net_domain(themeinterfacer)
+app_domain(themeinterfacer)
+binder_service(themeinterfacer)
+
+# Modify system dalvik-cache
+allow themeinterfacer dalvikcache_data_file:dir r_dir_perms;
+allow themeinterfacer dalvikcache_data_file:file rw_file_perms;
+
+# Read and write /data/data subdirectory.
+allow themeinterfacer system_app_data_file:dir create_dir_perms;
+allow themeinterfacer system_app_data_file:{ file lnk_file } create_file_perms;
+
+# /data/resource-cache
+r_dir_file(themeinterfacer, resourcecache_data_file)
+
+# Read wallpaper file.
+allow themeinterfacer wallpaper_file:file r_file_perms;
+
+# Read icon file.
+allow themeinterfacer icon_file:file r_file_perms;
+
+# Set bootanimation
+allow themeinterfacer bootanim:process { getsched setsched };
+
+# Backup of wallpaper imagery uses temporary hard links to avoid data churn
+allow themeinterfacer { system_data_file wallpaper_file }:file link;
+
+# Manage ringtones.
+allow themeinterfacer ringtone_file:dir { create_dir_perms relabelto };
+allow themeinterfacer ringtone_file:file create_file_perms;
+
+# System file accesses.
+allow themeinterfacer kernel:system module_request;
+allow themeinterfacer system_data_file:dir create_dir_perms;
+allow themeinterfacer system_data_file:file create_file_perms;
+allow themeinterfacer system_file:dir { r_dir_perms rmdir };
+
+# Allow handling of theme assets
+allow themeinterfacer theme_data_file:dir create_dir_perms;
+allow themeinterfacer theme_data_file:file create_file_perms;
+
+# Modify system properties
+set_prop(themeinterfacer, theme_prop)
+
+# Edit files in /sdcard
+allow themeinterfacer media_rw_data_file:dir rw_dir_perms;
+allow themeinterfacer media_rw_data_file:file rw_file_perms;
+
+# Services
+allow themeinterfacer activity_service:service_manager find;
+allow themeinterfacer connectivity_service:service_manager find;
+allow themeinterfacer display_service:service_manager find;
+allow themeinterfacer mount_service:service_manager find;
+allow themeinterfacer network_management_service:service_manager find;
+allow themeinterfacer overlay_service:service_manager find;
