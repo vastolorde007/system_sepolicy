@@ -63,6 +63,7 @@ type hardware_properties_service, app_api_service, system_server_service, servic
 type hdmi_control_service, system_api_service, system_server_service, service_manager_type;
 type input_method_service, app_api_service, system_server_service, service_manager_type;
 type input_service, app_api_service, system_server_service, service_manager_type;
+type interfacer_service, app_api_service, system_server_service, service_manager_type;
 type imms_service, app_api_service, system_server_service, service_manager_type;
 type jobscheduler_service, app_api_service, system_server_service, service_manager_type;
 type launcherapps_service, app_api_service, system_server_service, service_manager_type;
@@ -105,7 +106,6 @@ type statusbar_service, app_api_service, system_server_service, service_manager_
 type task_service, system_server_service, service_manager_type;
 type textservices_service, app_api_service, system_server_service, service_manager_type;
 type telecom_service, app_api_service, system_server_service, service_manager_type;
-type themeinterfacer_service, app_api_service, system_server_service, service_manager_type;
 type trust_service, app_api_service, system_server_service, service_manager_type;
 type tv_input_service, app_api_service, system_server_service, service_manager_type;
 type uimode_service, app_api_service, system_server_service, service_manager_type;
