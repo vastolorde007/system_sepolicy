@@ -95,7 +95,6 @@
     statsdw
     statsdw_socket
     storaged_data_file
-    sysfs_disk_stat
     sudaemon
     sysfs_disk_stat
     system_boot_reason_prop

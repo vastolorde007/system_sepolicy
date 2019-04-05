@@ -107,7 +107,6 @@
     statsdw_socket
     statscompanion_service
     storaged_data_file
-    sysfs_disk_stat
     sudaemon
     sysfs_disk_stat
     sysfs_fs_ext4_features
