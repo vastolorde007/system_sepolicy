@@ -333,6 +333,7 @@ define(`dac_override_allowed', `{
   sdcardd
   tee
   ueventd
+  update_engine
   uncrypt
   vendor_init
   vold
@@ -391,6 +392,7 @@ neverallow {
   -tee
   -hal_bootctl_server
   -fastbootd
+  -update_engine
 } self:global_capability_class_set sys_rawio;
 
 # Limit directory operations that doesn't need to do app data isolation.
